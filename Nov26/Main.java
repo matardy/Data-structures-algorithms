@@ -74,7 +74,7 @@ public class Main {
 
     public static int[] modifica_desordenado(int[] arreglo, int valor1, int valor2){
         int N = obtenerElementosActuales(arreglo);
-        while(CONT < arreglo.length && valor1 != arreglo[CONT]){
+        while(CONT < N && valor1 != arreglo[CONT]){
             CONT += 1;
         }
         if(CONT >= arreglo.length){
@@ -215,11 +215,11 @@ public class Main {
     public static void main(String[] args){
 
         //Ej1
-        OperacionesBasicasUnidimensionales();
+        //OperacionesBasicasUnidimensionales();
 
         //Ej2
         System.out.println();
-        OperacionesBasicasBidimensionales();
+        //OperacionesBasicasBidimensionales();
 
         //Ej3
         System.out.println();
