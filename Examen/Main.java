@@ -9,7 +9,7 @@ Funcion TowerOfHanoi ( n, A, B, C )
 		escribir A, " --> " , C
 		TowerOfHanoi(n-1, B,A,C)
 	Fin Si
-FinFuncion
+FinFuncion.
 
 
 Algoritmo TowerOfHanoi_Recursivo
