@@ -1,4 +1,4 @@
-package Inclass.IB.SinglyLinkedList;
+package Inclass.IB.Lists;
 
 public class SinglyLinkedList<E> {
     // ---------- Nested class for Node ----------------

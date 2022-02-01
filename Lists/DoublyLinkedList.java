@@ -1,6 +1,4 @@
-package Inclass.IB.DoublyLinkedList;
-
-import Inclass.IB.CircularLinkedList.CircularLinkedList;
+package Inclass.IB.Lists;
 
 public class DoublyLinkedList <E>{
     // --- Nested Node Class -----

@@ -1,4 +1,4 @@
-package Inclass.IB.CircularLinkedList;
+package Inclass.IB.Lists;
 
 public class CircularLinkedList <E>{
     // ---------- Nested class for Node ----------------
