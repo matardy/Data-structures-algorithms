@@ -2,7 +2,7 @@ package Inclass.IB.Trees;
 
 public class BinarySearchTree <E extends Comparable<E>>{
 
-
+    // Sub clase para el Nodo.
     public static class Node<E>{
         public E key;
         public Node<E> left, right;
@@ -15,13 +15,14 @@ public class BinarySearchTree <E extends Comparable<E>>{
 
     }
 
+    // Variables de instancia de BinarySearchTree
     Node<E> root;
     BinarySearchTree(){
         this.root = null;
     }
 
-    // Retorna un Nodo
 
+    // Metodos principales
     public void search(E key){
         Node<E> node = searchElement(this.root, key);
         System.out.println("   " + node.key);
@@ -31,7 +32,19 @@ public class BinarySearchTree <E extends Comparable<E>>{
     public void delete(E key){
         this.root = deleteElement(this.root,key);
     }
+    public void insert(E key){
+        this.root = insertElement(this.root, key);
+    }
 
+
+    // Metodos principales: Main code.
+
+    /**
+     * Busca un nodo apartir de su llave.
+     * @param root
+     * @param key
+     * @return Nodo buscado
+     */
     public Node<E> searchElement(Node<E> root, E key){
 
         if(root == null || root.key == key){
@@ -45,6 +58,12 @@ public class BinarySearchTree <E extends Comparable<E>>{
 
     }
 
+    /**
+     * Elimina un nodo y reorganiza el arbol.
+     * @param root
+     * @param key
+     * @return Arbol reoganizado (Devuelve el nodo root, de donde sale todo el arbol)
+     */
     public Node<E> deleteElement(Node<E> root, E key) {
 
         // Caso base: si el arbol está vacio
@@ -81,24 +100,12 @@ public class BinarySearchTree <E extends Comparable<E>>{
 
     }
 
-    /*
-    Esta funcion obtiene el valor minimo de un BTS, basicamente recorre
-    hasta el final de la rama izquierda.
+    /**
+     * Inserta un elemento basandose en el concepto de BTS.
+     * @param root
+     * @param key
+     * @return De vuelve el arbol reorganizado
      */
-    public E getMinValue(Node<E> auxRoot){
-        E minv = auxRoot.key;
-        while(auxRoot.left != null){
-            minv = auxRoot.left.key;
-            auxRoot = auxRoot.left;
-        }
-        return minv;
-    }
-
-
-
-    public void insert(E key){
-        this.root = insertElement(this.root, key);
-    }
     public Node<E> insertElement(Node<E> root , E key){
         if(root == null){
             root = new Node(key);
@@ -115,6 +122,28 @@ public class BinarySearchTree <E extends Comparable<E>>{
     }
 
 
+
+    // Metodos secundarios:
+
+    /**
+     * Esta funcion obtiene el valor minimo de un BTS, basicamente recorre
+     * hasta el final de la rama izquierda.
+     * @param auxRoot Raiz de un arbol
+     * @return Minimo de un arbol tipo <E>
+     */
+    public E getMinValue(Node<E> auxRoot){
+        E minv = auxRoot.key;
+        while(auxRoot.left != null){
+            minv = auxRoot.left.key;
+            auxRoot = auxRoot.left;
+        }
+        return minv;
+    }
+
+    /**
+     * Imprime los nodos de un arbol de forma ascendente
+     * @param root
+     */
     public void printInorder(Node<E> root){
         if(root != null){
             printInorder(root.left);
@@ -123,6 +152,11 @@ public class BinarySearchTree <E extends Comparable<E>>{
         }
     }
 
+    /**
+     * Imprime un arbol de forma jerarquica
+     * @param root
+     * @param prefix
+     */
     public void printTree(Node<E> root , String prefix){
         if(root == null) return;
         System.out.println(prefix + " -> " + root.key);
@@ -130,6 +164,12 @@ public class BinarySearchTree <E extends Comparable<E>>{
         printTree(root.right,"|" + prefix + " ");
     }
 
+    /**
+     * Obtiene el padre de un nodo
+     * @param root
+     * @param son
+     * @return Nodo con el padre
+     */
     public Node<E> getParent(Node<E> root, Node<E> son){
 
         if(root == son || root==null){
@@ -150,17 +190,27 @@ public class BinarySearchTree <E extends Comparable<E>>{
     }
 
     public static void main(String[] args){
-        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
-        /* Exm:
+         /* Exm:
               50
            /     \
           30      70
          /  \    /  \
        20   40  60   80
                     /
-                   75
-       */
+                   75*/
+        System.out.println("Vamos a trabajar con el arbol: ");
+        System.out.println("""
+                  50
+               /     \\
+              30      70
+             /  \\    /  \\
+           20   40  60   80
+                        /
+                       75
+                """);
 
+        // Insersion y declaracion.
+        BinarySearchTree<Integer> tree = new BinarySearchTree<>();
         tree.insert(50);
         tree.insert(30);
         tree.insert(20);
@@ -170,11 +220,23 @@ public class BinarySearchTree <E extends Comparable<E>>{
         tree.insert(80);
         tree.insert(75);
 
+        System.out.println("Imprimimos los nodos en orden: ");
         tree.printInorder(tree.root);
+        System.out.println();
+
+        System.out.println("Vamos a buscar el nodo con llave 30: ");
         tree.search(30);
+        System.out.println();
+
+        System.out.println("Imprimimos el arbol: ");
         tree.printTree(tree.root, "");
         System.out.println("Vamos a eliminar el 70: ");
         tree.delete(70);
+        System.out.println("Imprimimos el arbol: ");
+        tree.printTree(tree.root, "");
+        System.out.println("Insertamos 90: ");
+        tree.insert(90);
+        System.out.println("Imprimimos el arbol: ");
         tree.printTree(tree.root, "");
 
     }
