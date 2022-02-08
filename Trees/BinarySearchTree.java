@@ -16,8 +16,8 @@ public class BinarySearchTree <E extends Comparable<E>>{
     }
 
     // Variables de instancia de BinarySearchTree
-    Node<E> root;
-    BinarySearchTree(){
+    public Node<E> root;
+    public BinarySearchTree(){
         this.root = null;
     }
 
