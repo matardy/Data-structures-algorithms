@@ -8,7 +8,7 @@ package Inclass.IB.SortAlgorithms;
  *  1 2 3 4 5 6 7  8
  * |9|3|7|5|6|5|2|0|
  *  l           h
- *                    (1,8)
+ *                    (1,8) // son los index
  *            /                 \
  *         (1,4)                 (5,8)
  *      /        \            /        \
@@ -17,7 +17,7 @@ package Inclass.IB.SortAlgorithms;
  *  (1,1)(2,2) (3,3)(4,4)  (5,5)(6,6) (7,7)(8,8)
  *
  *
- *  Algoritmo Merge(A,B,m,n){
+ *  Algoritmo Merge(A,B,m,n)
  *      i=1, j=1, k=1
  *      Mientras(i<=m y j<=n){
  *          si(A[i] < B[j]){
@@ -30,18 +30,18 @@ package Inclass.IB.SortAlgorithms;
  *          C[k++] = A[i]
  *      para j hasta n hacer
  *          C[k++] = B[i]
- *  }
+ *  FinAlgoritmo
  *
  *
  *
- *  Algoritmo MergeSort(l,h){
+ *  Algoritmo MergeSort(l,h)
  *      Si( l < h ){
  *          mid = (l+h)/2
  *          MergeSort(l,h)
  *          MergeSort(mid+l, h)
  *          Merge(l,mid,h)
  *      }
- *  }
+ *  FinAlgoritmo
  */
 
 
